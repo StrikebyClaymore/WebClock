@@ -30,6 +30,8 @@ namespace _ClockApplication
             AcceptButton.onClick.AddListener(StopEdit);
             MinutesInputField.onValidateInput += ValidateInputField;
             HoursInputField.onValidateInput += ValidateInputField;
+            HoursInputField.onValueChanged.AddListener(HoursValueChanged);
+            MinutesInputField.onValueChanged.AddListener(MinutesValueChanged);
         }
 
         public void Initialize(DateTime dateTime)
@@ -67,6 +69,22 @@ namespace _ClockApplication
                 return '\0';
             }
             return addedchar;
+        }
+        
+        private void HoursValueChanged(string value)
+        {
+            if (int.TryParse(value, out var intValue) && intValue > 23)
+            {
+                MinutesInputField.text = "00";
+            }
+        }
+        
+        private void MinutesValueChanged(string value)
+        {
+            if (int.TryParse(value, out var intValue) && intValue > 59)
+            {
+                MinutesInputField.text = "00";
+            }
         }
         
         private void ArrowDragEvent(ClockArrow arrow, PointerEventData eventData)
