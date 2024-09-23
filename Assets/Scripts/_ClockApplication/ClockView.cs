@@ -9,10 +9,10 @@ namespace _ClockApplication
 {
     public class ClockView : MonoBehaviour
     {
-        [field: SerializeField] public Transform SecondArrow { get; private set; }
-        [field: SerializeField] public ClockArrow MinuteArrow { get; private set; }
-        [field: SerializeField] public ClockArrow HourArrow { get; private set; }
-        [field: SerializeField] public Text TimeText { get; private set; }
+        [field: SerializeField] private Transform SecondArrow { get; set; }
+        [field: SerializeField] private ClockArrow MinuteArrow { get; set; }
+        [field: SerializeField] private ClockArrow HourArrow { get; set; }
+        [field: SerializeField] private Text TimeText { get; set; }
         [field: SerializeField] public Button EditButton { get; private set; }
         [field: SerializeField] public Button AcceptButton { get; private set; }
         [field: SerializeField] public Button CancelButton { get; private set; }
